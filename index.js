@@ -312,13 +312,13 @@ setInterval(() => {
          randevuGecmisi({ token: newtoken }).then(gecmis => {
             const randevu = gecmis.aktifRandevuDtoList.filter(a => a.mhrsKlinikAdi === kliniks.find(a => a.value === user.klinik).text)
             if (randevu.length <= 0) {
-               const date = moment().format('YYYY-MM-DD HH:MM:SS')
+               const date = moment().format('YYYY-MM-DD HH:mm:ss')
                searchRandevu({
                   cinsiyet: user.cinsiyet,
                   plaka: user.plaka,
                   klinikId: user.klinik,
                   baslangic: String(moment().format('YYYY-MM-DD HH:MM:SS')),
-                  bitis: String(moment().format(`YYYY-MM-${String(date.split("-")[2].slice(0, 2) * 1 + 15)} HH:MM:SS`)),
+                  bitis: String(moment().format(`YYYY-MM-${String(date.split("-")[2].slice(0, 2) * 1 + 15)} HH:mm:ss`)),
                   token: newtoken,
                }).then(veri => {
                   sorguHekim({
