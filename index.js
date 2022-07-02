@@ -317,7 +317,7 @@ setInterval(() => {
                   cinsiyet: user.cinsiyet,
                   plaka: user.plaka,
                   klinikId: user.klinik,
-                  baslangic: String(moment().format('YYYY-MM-DD HH:MM:SS')),
+                  baslangic: String(moment().format('YYYY-MM-DD HH:mm:ss')),
                   bitis: String(moment().format(`YYYY-MM-${String(date.split("-")[2].slice(0, 2) * 1 + 15)} HH:mm:ss`)),
                   token: newtoken,
                }).then(veri => {
@@ -338,9 +338,9 @@ setInterval(() => {
                            saatler.map(saat => {
                               saat.slotList.map(a => slotList.push(a))
                            })
-
+   
                            const alinabilir = slotList.filter(a => a.bos === true)
-
+   
                            randevuAl({
                               fkSlotId: alinabilir[0].slot.id,
                               fkCetvelId: alinabilir[0].slot.fkCetvelId,
@@ -348,8 +348,8 @@ setInterval(() => {
                               bitisZamani: alinabilir[0].slot.bitisZamani,
                               token: newtoken
                            }).then(console.log)
-
-
+   
+   
                         } else {
                            console.log("istenilen cinsiyete göre hekim bulunamadı")
                         }
@@ -361,9 +361,9 @@ setInterval(() => {
                            saatler.map(saat => {
                               saat.slotList.map(a => slotList.push(a))
                            })
-
+   
                            const alinabilir = slotList.filter(a => a.bos === true)
-
+   
                            randevuAl({
                               fkSlotId: alinabilir[0].slot.id,
                               fkCetvelId: alinabilir[0].slot.fkCetvelId,
@@ -371,7 +371,7 @@ setInterval(() => {
                               bitisZamani: alinabilir[0].slot.bitisZamani,
                               token: newtoken
                            }).then(console.log)
-
+   
                         } else {
                            console.log("kullanılabilecek hekim yok")
                         }
