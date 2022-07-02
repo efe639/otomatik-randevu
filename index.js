@@ -1,3 +1,5 @@
+const moment = require("moment");
+moment.locale("tr")
 const getAuth = require("./functions/auth/auth");
 const randevuGecmisi = require("./functions/randevu/gecmis");
 const randevuAl = require("./functions/randevu/randevu");
@@ -310,12 +312,13 @@ setInterval(() => {
          randevuGecmisi({ token: newtoken }).then(gecmis => {
             const randevu = gecmis.aktifRandevuDtoList.filter(a => a.mhrsKlinikAdi === kliniks.find(a => a.value === user.klinik).text)
             if (randevu.length <= 0) {
+               const date = moment().format('YYYY-MM-DD HH:MM:SS')
                searchRandevu({
                   cinsiyet: user.cinsiyet,
                   plaka: user.plaka,
                   klinikId: user.klinik,
-                  baslangic: "2022-07-02 13:40:00",
-                  bitis: "2022-07-17 13:40:00",
+                  baslangic: moment().format('YYYY-MM-DD HH:MM:SS'),
+                  bitis: date.split("-")[2].slice(0, 2) * 1 + 15,
                   token: newtoken,
                }).then(veri => {
                   sorguHekim({

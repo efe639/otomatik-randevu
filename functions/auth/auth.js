@@ -26,7 +26,7 @@ const getAuth = async ({
          resolve(JSON.stringify(response.data.data.jwt));
       })
       .catch(function (error) {
-         console.log(error);
+         console.log("Hata");
       });
 })
 
