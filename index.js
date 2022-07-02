@@ -287,7 +287,7 @@ const kliniks = [
 ]
 
 
-users = [
+const users = [
    {
       tc: 0, // type number
       password: "pass", // type string
