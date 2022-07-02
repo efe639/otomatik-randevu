@@ -364,14 +364,14 @@ setInterval(() => {
 
                            const alinabilir = slotList.filter(a => a.bos === true)
 
-                           const data = {
+                           randevuAl({
                               fkSlotId: alinabilir[0].slot.id,
                               fkCetvelId: alinabilir[0].slot.fkCetvelId,
                               baslangicZamani: alinabilir[0].slot.baslangicZamani,
-                              bitisZamani: alinabilir[0].slot.baslangicZamani
-                           }
+                              bitisZamani: alinabilir[0].slot.bitisZamani,
+                              token: newtoken
+                           }).then(console.log)
 
-                           console.log(data)
                         } else {
                            console.log("kullanılabilecek hekim yok")
                         }
