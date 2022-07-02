@@ -317,8 +317,8 @@ setInterval(() => {
                   cinsiyet: user.cinsiyet,
                   plaka: user.plaka,
                   klinikId: user.klinik,
-                  baslangic: moment().format('YYYY-MM-DD HH:MM:SS'),
-                  bitis: date.split("-")[2].slice(0, 2) * 1 + 15,
+                  baslangic: String(moment().format('YYYY-MM-DD HH:MM:SS')),
+                  bitis: String(moment().format(`YYYY-MM-${String(date.split("-")[2].slice(0, 2) * 1 + 15)} HH:MM:SS`)),
                   token: newtoken,
                }).then(veri => {
                   sorguHekim({
